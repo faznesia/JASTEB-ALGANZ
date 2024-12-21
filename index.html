@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JASTEB BY ALGANZ</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #f06, #ff9);
+    }
+
+    form {
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    h1 {
+      color: #f06;
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #f06;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #f06;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff3b3b;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 15px 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="emailForm">
+    <!-- Logo -->
+    <img src="logoo.jpg" alt="Logo" class="logo">
+    <h1>PANEL JASTEB ALGANZ⚠️</h1>
+    
+    <!-- Input untuk email tujuan -->
+    <label for="to1">Email Tujuan 1:</label>
+    <input type="email" id="to1" name="to1" placeholder="Masukkan email tujuan 1" required>
+
+    <label for="to2">Email Tujuan 2:</label>
+    <input type="email" id="to2" name="to2" placeholder="Masukkan email tujuan 2" required>
+
+    <label for="to3">Email Tujuan 3:</label>
+    <input type="email" id="to3" name="to3" placeholder="Masukkan email tujuan 3" required>
+
+    <label for="to4">Email Tujuan 4:</label>
+    <input type="email" id="to4" name="to4" placeholder="Masukkan email tujuan 4" required>
+
+    <label for="to5">Email Tujuan 5:</label>
+    <input type="email" id="to5" name="to5" placeholder="Masukkan email tujuan 5" required>
+
+    <!-- Tombol submit -->
+    <button type="submit">Kirim Ress</button>
+
+    <label for="s">PANEL KHUSUS PT ALGANZ⚠️</label>
+
+    <!-- Umpan balik pengiriman -->
+    <p id="feedback" style="text-align: center; color: green; display: none;">Pesan berhasil dikirim!</p>
+  </form>
+
+  <script>
+    const credentials = [
+      { email: 'andi@gmail.com', password: 'andi2024' },
+      // Tambahkan lebih banyak kredensial di sini
+    ];
+
+    function getRandomCredential() {
+      return credentials[Math.floor(Math.random() * credentials.length)];
+    }
+
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const toEmails = [
+        document.getElementById('to1').value,
+        document.getElementById('to2').value,
+        document.getElementById('to3').value,
+        document.getElementById('to4').value,
+        document.getElementById('to5').value
+      ];
+
+      const { email, password } = getRandomCredential();
+      const location = 'Jakarta';
+      const subject = "RESS MEDIAFIRE - ALGANZ";
+      const message = `
+⚠️UNCHEK BY ALGANZ⚠️
+━━━━━━━━━━━━━━━━━━━━
+🔐 LOGIN : FACEBOOK
+📧 EMAIL  : ${email}
+🔑 PASSWORD : ${password}
+📍 LOKASI : ${location}
+━━━━━━━━━━━━━━━━━━━━
+⚠️ PANEL KHUSUS PT ALGANZ.
+      `;
+
+      toEmails.forEach(to => {
+        const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        window.open(mailtoLink, '_blank');
+      });
+
+      document.getElementById('feedback').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
